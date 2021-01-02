@@ -47,7 +47,6 @@
             .title {
                 font-size: 84px;
             }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -64,7 +63,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div id="app" class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -80,6 +79,7 @@
             @endif
 
             <div class="content">
+
                 <div class="title m-b-md">
                     Laravel
                 </div>
@@ -96,5 +96,6 @@
                 </div>
             </div>
         </div>
+        <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>

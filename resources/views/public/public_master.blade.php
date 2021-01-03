@@ -8,11 +8,7 @@
 </head>
 <body>
     <div id="app">
-        @{{test}}
-        <router-link to="/test">Go to Foo</router-link>
-        <router-link to="/bar">Go to bar</router-link>
-        <br>
-        <router-view></router-view>
+        <public-master></public-master>
     </div>
 
     <script src="{{asset('js/app.js')}}"></script>

@@ -1,7 +1,23 @@
 <template>
-    <div id="public_master">
-        <h2>Public Master</h2>
+  <div id="public_master">
+    <public-header></public-header>
 
-        <router-view></router-view>
-    </div>
+    <router-view></router-view>
+
+    <public-footer></public-footer>
+  </div>
 </template>
+
+<script>
+import PublicHeader from "../public/inc/PublicHeader";
+import PublicFooter from "../public/inc/PublicFooter";
+export default {
+  name: "PublicMaster",
+  components: {
+    PublicHeader,
+    PublicFooter
+  },
+};
+</script>
+
+PublicHeader

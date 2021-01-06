@@ -39589,7 +39589,7 @@ var staticRenderFns = [
                 { staticClass: "cart-itme-a", attrs: { href: "cart.html" } },
                 [
                   _c("i", { staticClass: "mdi mdi-cart" }),
-                  _vm._v("\n                        02 items :  "),
+                  _vm._v("\r\n                        02 items :  "),
                   _c("strong", [_vm._v("$86.00")])
                 ]
               ),
@@ -55299,7 +55299,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\Laravel\GitHub\Laravel-Vue-Ecommerce\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\LaraVueEcom\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

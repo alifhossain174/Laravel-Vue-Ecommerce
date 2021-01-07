@@ -7,6 +7,8 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Dashboard</h1>
+                            {{name}}
+                            {{myName}}
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
@@ -965,9 +967,7 @@
                                         <i class="far fa-calendar-alt"></i>
                                         Calendar
                                     </h3>
-                                    <!-- tools card -->
                                     <div class="card-tools">
-                                        <!-- button with a dropdown -->
                                         <div class="btn-group">
                                             <button
                                                 type="button"
@@ -1016,34 +1016,31 @@
                                             <i class="fas fa-times"></i>
                                         </button>
                                     </div>
-                                    <!-- /. tools -->
                                 </div>
-                                <!-- /.card-header -->
                                 <div class="card-body pt-0">
-                                    <!--The calendar -->
                                     <div
                                         id="calendar"
                                         style="width: 100%"
                                     ></div>
                                 </div>
-                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card -->
                         </section>
-                        <!-- right col -->
                     </div>
-                    <!-- /.row (main row) -->
                 </div>
-                <!-- /.container-fluid -->
             </section>
-            <!-- /.content -->
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "AdminDashboard"
+    name: "AdminDashboard",
+    data(){
+        return{
+            name: this.$store.state.user_module,
+            myName: this.$store.getters['user_module/myName'] // you can access any modules getter without specifying the mudle name
+        }
+    }
 };
 </script>
 

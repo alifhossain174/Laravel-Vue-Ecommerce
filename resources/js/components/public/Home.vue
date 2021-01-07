@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="section-title text-center">
-							<h2>Latest Blog</h2>
+							<h2>Latest Blog {{name}} {{myName}}</h2>
 						</div>
 					</div>
 				</div>
@@ -115,10 +115,14 @@
 
 <script>
 export default {
-    name: "Home"
-}
+    name: "home",
+    data(){
+        return{
+            name: this.$store.state.user_module,
+            myName: this.$store.getters['user_module/myName'] // you can access any modules getter without specifying the mudle name
+        }
+    }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -2,7 +2,7 @@
   <div id="public_master">
     <public-header></public-header>
 
-    <router-view></router-view>
+        <router-view></router-view>
 
     <public-footer></public-footer>
   </div>
@@ -19,5 +19,3 @@ export default {
   },
 };
 </script>
-
-PublicHeader

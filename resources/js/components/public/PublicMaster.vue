@@ -2,7 +2,9 @@
   <div id="public_master">
     <public-header></public-header>
 
-        <router-view></router-view>
+    <public-bread-crum></public-bread-crum>
+
+    <router-view></router-view>
 
     <public-footer></public-footer>
   </div>
@@ -11,11 +13,13 @@
 <script>
 import PublicHeader from "../public/inc/PublicHeader";
 import PublicFooter from "../public/inc/PublicFooter";
+import PublicBreadCrum from "../public/inc/PublicBreadCrum";
 export default {
   name: "PublicMaster",
   components: {
     PublicHeader,
-    PublicFooter
+    PublicFooter,
+    PublicBreadCrum
   },
 };
 </script>

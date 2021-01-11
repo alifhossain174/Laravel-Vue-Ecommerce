@@ -235,6 +235,11 @@ export default {
             this.$store.dispatch('user_module/userLogout');
             // this.$router.push({name:'Home'}); // by using name
             this.$router.push('/'); //by using path
+            this.$message({
+                showClose: true,
+                message: 'Logged Out Successfully',
+                type: 'success'
+            });
         }
     },
     created(){ // load without any event

@@ -11,12 +11,18 @@
                     </div>
                     <div class="middel-top clearfix">
                         <ul class="clearfix right floatright">
-                            <li>
+                            <li v-if="user && user.id">
+                                <a href="#"><i class="mdi mdi-account"></i></a>
+                                <ul>
+                                    <li><router-link to="/user/user-dashboard">MyAccount</router-link></li>
+                                    <li><a @click.prevent="userLogout()">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li v-else>
                                 <a href="#"><i class="mdi mdi-account"></i></a>
                                 <ul>
                                     <li><router-link to="/user-login">Login</router-link></li>
                                     <li><router-link to="/user-register">Registar</router-link></li>
-                                    <li><a href="my-account.html">My account</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -218,7 +224,20 @@
 
 <script>
 export default {
-    name: "PublicHeader"
+    name: "PublicHeader",
+    computed:{
+        user(){
+            return this.$store.getters['user_module/getAuthUserInfo']
+        }
+    },
+    methods:{
+        userLogout(){
+
+        }
+    },
+    created(){ // load without any event
+        this.$store.dispatch('user_module/getUser');
+    }
 }
 </script>
 

@@ -2024,14 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "home",
-  data: function data() {
-    return {
-      name: this.$store.state.user_module,
-      myName: this.$store.getters['user_module/myName'] // you can access any modules getter without specifying the mudle name
-
-    };
-  }
+  name: "home"
 });
 
 /***/ }),
@@ -2087,8 +2080,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "UserDashboard"
+  name: "UserDashboard",
+  computed: {
+    user: function user() {
+      return this.$store.getters['user_module/getAuthUserInfo'];
+    }
+  },
+  created: function created() {
+    // load without any event
+    this.$store.dispatch('user_module/getUser');
+  }
 });
 
 /***/ }),
@@ -2699,8 +2704,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "PublicHeader"
+  name: "PublicHeader",
+  computed: {
+    user: function user() {
+      return this.$store.getters['user_module/getAuthUserInfo'];
+    }
+  },
+  methods: {
+    userLogout: function userLogout() {}
+  },
+  created: function created() {
+    // load without any event
+    this.$store.dispatch('user_module/getUser');
+  }
 });
 
 /***/ }),
@@ -38295,319 +38318,359 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("section", { staticClass: "latest-blog section-padding" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-xs-12" }, [
-            _c("div", { staticClass: "section-title text-center" }, [
-              _c("h2", [
-                _vm._v(
-                  "Latest Blog " + _vm._s(_vm.name) + " " + _vm._s(_vm.myName)
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ])
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wrapper" }, [
-      _c("ul", { staticClass: "load-list load-list-blog" }, [
-        _c("li", [
+    return _c("div", [
+      _c("section", { staticClass: "latest-blog section-padding" }, [
+        _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-4" }, [
-              _c("div", { staticClass: "l-blog-text" }, [
-                _c("div", { staticClass: "banner" }, [
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _c("img", {
-                      attrs: { src: "assets/public/img/blog/1.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "s-blog-text" }, [
-                  _c("h4", [
-                    _c("a", { attrs: { href: "single-blog.html" } }, [
-                      _vm._v("Fashion style fine arts drawing")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("By : "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("210 Like")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("69 Comments")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date-read clearfix" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "mdi mdi-clock" }),
-                    _vm._v(" jun 25, 2016")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _vm._v("read more")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-4" }, [
-              _c("div", { staticClass: "l-blog-text" }, [
-                _c("div", { staticClass: "banner" }, [
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _c("img", {
-                      attrs: { src: "assets/public/img/blog/2.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "s-blog-text" }, [
-                  _c("h4", [
-                    _c("a", { attrs: { href: "single-blog.html" } }, [
-                      _vm._v("women’s Fashion style 2016")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("By : "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("210 Like")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("69 Comments")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date-read clearfix" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "mdi mdi-clock" }),
-                    _vm._v(" jun 15, 2016")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _vm._v("read more")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-4" }, [
-              _c("div", { staticClass: "l-blog-text" }, [
-                _c("div", { staticClass: "banner" }, [
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _c("img", {
-                      attrs: { src: "assets/public/img/blog/3.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "s-blog-text" }, [
-                  _c("h4", [
-                    _c("a", { attrs: { href: "single-blog.html" } }, [
-                      _vm._v("women’s winter Fashion style")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("By : "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("210 Like")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("69 Comments")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date-read clearfix" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "mdi mdi-clock" }),
-                    _vm._v(" jun 22, 2016")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _vm._v("read more")
-                  ])
-                ])
+            _c("div", { staticClass: "col-xs-12" }, [
+              _c("div", { staticClass: "section-title text-center" }, [
+                _c("h2", [_vm._v("Latest Blog")])
               ])
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-4" }, [
-              _c("div", { staticClass: "l-blog-text" }, [
-                _c("div", { staticClass: "banner" }, [
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _c("img", {
-                      attrs: { src: "assets/public/img/blog/4.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "s-blog-text" }, [
-                  _c("h4", [
-                    _c("a", { attrs: { href: "single-blog.html" } }, [
-                      _vm._v("women’s winter Fashion style")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "wrapper" }, [
+            _c("ul", { staticClass: "load-list load-list-blog" }, [
+              _c("li", [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "l-blog-text" }, [
+                      _c("div", { staticClass: "banner" }, [
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/public/img/blog/1.jpg",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-blog-text" }, [
+                        _c("h4", [
+                          _c("a", { attrs: { href: "single-blog.html" } }, [
+                            _vm._v("Fashion style fine arts drawing")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("By : "),
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("210 Like")
+                          ]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("69 Comments")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date-read clearfix" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "mdi mdi-clock" }),
+                          _vm._v(" jun 25, 2016")
+                        ]),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _vm._v("read more")
+                        ])
+                      ])
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("span", [
-                    _vm._v("By : "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("210 Like")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("69 Comments")])
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "l-blog-text" }, [
+                      _c("div", { staticClass: "banner" }, [
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/public/img/blog/2.jpg",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-blog-text" }, [
+                        _c("h4", [
+                          _c("a", { attrs: { href: "single-blog.html" } }, [
+                            _vm._v("women’s Fashion style 2016")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("By : "),
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("210 Like")
+                          ]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("69 Comments")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date-read clearfix" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "mdi mdi-clock" }),
+                          _vm._v(" jun 15, 2016")
+                        ]),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _vm._v("read more")
+                        ])
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
-                    )
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "l-blog-text" }, [
+                      _c("div", { staticClass: "banner" }, [
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/public/img/blog/3.jpg",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-blog-text" }, [
+                        _c("h4", [
+                          _c("a", { attrs: { href: "single-blog.html" } }, [
+                            _vm._v("women’s winter Fashion style")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("By : "),
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("210 Like")
+                          ]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("69 Comments")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date-read clearfix" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "mdi mdi-clock" }),
+                          _vm._v(" jun 22, 2016")
+                        ]),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _vm._v("read more")
+                        ])
+                      ])
+                    ])
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date-read clearfix" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "mdi mdi-clock" }),
-                    _vm._v(" jun 22, 2016")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "l-blog-text" }, [
+                      _c("div", { staticClass: "banner" }, [
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/public/img/blog/4.jpg",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-blog-text" }, [
+                        _c("h4", [
+                          _c("a", { attrs: { href: "single-blog.html" } }, [
+                            _vm._v("women’s winter Fashion style")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("By : "),
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("210 Like")
+                          ]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("69 Comments")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date-read clearfix" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "mdi mdi-clock" }),
+                          _vm._v(" jun 22, 2016")
+                        ]),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _vm._v("read more")
+                        ])
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _vm._v("read more")
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "l-blog-text" }, [
+                      _c("div", { staticClass: "banner" }, [
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/public/img/blog/5.jpg",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-blog-text" }, [
+                        _c("h4", [
+                          _c("a", { attrs: { href: "single-blog.html" } }, [
+                            _vm._v("Fashion style fine arts drawing")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("By : "),
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("210 Like")
+                          ]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("69 Comments")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date-read clearfix" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "mdi mdi-clock" }),
+                          _vm._v(" jun 25, 2016")
+                        ]),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _vm._v("read more")
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-4" }, [
+                    _c("div", { staticClass: "l-blog-text" }, [
+                      _c("div", { staticClass: "banner" }, [
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "assets/public/img/blog/6.jpg",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-blog-text" }, [
+                        _c("h4", [
+                          _c("a", { attrs: { href: "single-blog.html" } }, [
+                            _vm._v("women’s Fashion style 2016")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v("By : "),
+                          _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("210 Like")
+                          ]),
+                          _vm._v(" | "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("69 Comments")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date-read clearfix" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("i", { staticClass: "mdi mdi-clock" }),
+                          _vm._v(" jun 15, 2016")
+                        ]),
+                        _vm._v(" "),
+                        _c("a", { attrs: { href: "single-blog.html" } }, [
+                          _vm._v("read more")
+                        ])
+                      ])
+                    ])
                   ])
                 ])
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-sm-4" }, [
-              _c("div", { staticClass: "l-blog-text" }, [
-                _c("div", { staticClass: "banner" }, [
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _c("img", {
-                      attrs: { src: "assets/public/img/blog/5.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "s-blog-text" }, [
-                  _c("h4", [
-                    _c("a", { attrs: { href: "single-blog.html" } }, [
-                      _vm._v("Fashion style fine arts drawing")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("By : "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("210 Like")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("69 Comments")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date-read clearfix" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "mdi mdi-clock" }),
-                    _vm._v(" jun 25, 2016")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _vm._v("read more")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-4" }, [
-              _c("div", { staticClass: "l-blog-text" }, [
-                _c("div", { staticClass: "banner" }, [
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _c("img", {
-                      attrs: { src: "assets/public/img/blog/6.jpg", alt: "" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "s-blog-text" }, [
-                  _c("h4", [
-                    _c("a", { attrs: { href: "single-blog.html" } }, [
-                      _vm._v("women’s Fashion style 2016")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [
-                    _vm._v("By : "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("Rakib")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("210 Like")]),
-                    _vm._v(" | "),
-                    _c("a", { attrs: { href: "#" } }, [_vm._v("69 Comments")])
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour...."
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "date-read clearfix" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "mdi mdi-clock" }),
-                    _vm._v(" jun 15, 2016")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "single-blog.html" } }, [
-                    _vm._v("read more")
-                  ])
-                ])
-              ])
+            _c("button", { attrs: { id: "load-more-blog" } }, [
+              _vm._v("Load More")
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("button", { attrs: { id: "load-more-blog" } }, [_vm._v("Load More")])
+      ])
     ])
   }
 ]
@@ -38669,7 +38732,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h2", [_vm._v("User Dashboard")])
+  return _c("div", [
+    _c("h2", [_vm._v("User Dashboard")]),
+    _vm._v("\n    " + _vm._s(_vm.user) + "\n")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39663,33 +39729,68 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "middel-top clearfix" }, [
               _c("ul", { staticClass: "clearfix right floatright" }, [
-                _c("li", [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c(
-                      "li",
-                      [
-                        _c("router-link", { attrs: { to: "/user-login" } }, [
-                          _vm._v("Login")
+                _vm.user && _vm.user.id
+                  ? _c("li", [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("ul", [
+                        _c(
+                          "li",
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: "/user/user-dashboard" } },
+                              [_vm._v("MyAccount")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c(
+                            "a",
+                            {
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.userLogout()
+                                }
+                              }
+                            },
+                            [_vm._v("Logout")]
+                          )
                         ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c("router-link", { attrs: { to: "/user-register" } }, [
-                          _vm._v("Registar")
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ])
-                ]),
+                      ])
+                    ])
+                  : _c("li", [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("ul", [
+                        _c(
+                          "li",
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: "/user-login" } },
+                              [_vm._v("Login")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: "/user-register" } },
+                              [_vm._v("Registar")]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]),
                 _vm._v(" "),
                 _vm._m(3)
               ]),
@@ -39730,8 +39831,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "my-account.html" } }, [_vm._v("My account")])
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "mdi mdi-account" })
     ])
   },
   function() {
@@ -57550,19 +57651,34 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "user", function() { return user; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 var user = {
   namespaced: true,
   // for specifying which module you are accessing by getters, action and mutation
   state: {
-    name: 'Fahim'
+    user: {}
   },
   getters: {
-    myName: function myName(state) {
-      return state.name;
+    getAuthUserInfo: function getAuthUserInfo(state) {
+      return state.user;
     }
   },
-  actions: {},
-  mutations: {}
+  actions: {
+    getUser: function getUser(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/user/get/user/info').then(function (result) {
+        context.commit('getUserData', result.data.user_info);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  },
+  mutations: {
+    getUserData: function getUserData(state, payload) {
+      return state.user = payload;
+    }
+  }
 };
 
 /***/ }),

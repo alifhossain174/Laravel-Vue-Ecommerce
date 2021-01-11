@@ -59585,19 +59585,34 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "user", function() { return user; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 var user = {
   namespaced: true,
   // for specifying which module you are accessing by getters, action and mutation
   state: {
-    name: 'Fahim'
+    user: {}
   },
   getters: {
-    myName: function myName(state) {
-      return state.name;
+    getAuthUserInfo: function getAuthUserInfo(state) {
+      return state.user;
     }
   },
-  actions: {},
-  mutations: {}
+  actions: {
+    getUser: function getUser(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/user/get/user/info').then(function (result) {
+        context.commit('getUserData', result.data.user_info);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  },
+  mutations: {
+    getUserData: function getUserData(state, payload) {
+      return state.user = payload;
+    }
+  }
 };
 
 /***/ }),

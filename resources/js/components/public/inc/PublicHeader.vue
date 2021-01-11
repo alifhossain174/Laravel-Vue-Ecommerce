@@ -232,7 +232,9 @@ export default {
     },
     methods:{
         userLogout(){
-
+            this.$store.dispatch('user_module/userLogout');
+            // this.$router.push({name:'Home'}); // by using name
+            this.$router.push('/'); //by using path
         }
     },
     created(){ // load without any event

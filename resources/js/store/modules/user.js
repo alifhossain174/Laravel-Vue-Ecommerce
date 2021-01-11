@@ -19,6 +19,12 @@ export const user = {
                 .catch((err) => {
                     console.log(err)
                 });
+        },
+        userLogout(context){
+            Axios.post('/logout')
+            .then((result) => {
+                context.commit('getUserData',result.data);
+            })
         }
     },
     mutations:{

@@ -2718,7 +2718,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    userLogout: function userLogout() {}
+    userLogout: function userLogout() {
+      this.$store.dispatch('user_module/userLogout'); // this.$router.push({name:'Home'}); // by using name
+
+      this.$router.push('/'); //by using path
+    }
   },
   created: function created() {
     // load without any event
@@ -57671,6 +57675,11 @@ var user = {
         context.commit('getUserData', result.data.user_info);
       })["catch"](function (err) {
         console.log(err);
+      });
+    },
+    userLogout: function userLogout(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/logout').then(function (result) {
+        context.commit('getUserData', result.data);
       });
     }
   },

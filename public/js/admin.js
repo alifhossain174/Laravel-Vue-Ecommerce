@@ -59606,6 +59606,11 @@ var user = {
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    userLogout: function userLogout(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/logout').then(function (result) {
+        context.commit('getUserData', result.data);
+      });
     }
   },
   mutations: {

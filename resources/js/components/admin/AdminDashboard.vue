@@ -7,8 +7,6 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Dashboard</h1>
-                            {{name}}
-                            {{myName}}
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
@@ -1035,12 +1033,6 @@
 <script>
 export default {
     name: "AdminDashboard",
-    data(){
-        return{
-            name: this.$store.state.user_module,
-            myName: this.$store.getters['user_module/myName'] // you can access any modules getter without specifying the mudle name
-        }
-    }
 };
 </script>
 

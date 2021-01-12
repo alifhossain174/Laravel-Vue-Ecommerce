@@ -4357,10 +4357,6 @@ __webpack_require__.r(__webpack_exports__);
         type: 'success'
       });
     }
-  },
-  created: function created() {
-    // load without any event
-    this.$store.dispatch('user_module/getUser');
   }
 });
 

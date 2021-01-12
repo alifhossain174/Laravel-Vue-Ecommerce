@@ -242,9 +242,6 @@ export default {
             });
         }
     },
-    created(){ // load without any event
-        this.$store.dispatch('user_module/getUser');
-    }
 }
 </script>
 

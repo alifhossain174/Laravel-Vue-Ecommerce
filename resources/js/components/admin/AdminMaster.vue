@@ -1,12 +1,15 @@
 <template>
     <div id="admin_master">
         <div class="wrapper">
-            <admin-header></admin-header>
-            <admin-sidebar></admin-sidebar>
+
+            <template v-if="$route.name != 'AdminLogin'">
+                <admin-header ></admin-header>
+                <admin-sidebar></admin-sidebar>
+            </template>
 
             <router-view></router-view>
 
-            <admin-footer></admin-footer>
+            <admin-footer v-if="$route.name != 'AdminLogin'"></admin-footer>
         </div>
     </div>
 </template>

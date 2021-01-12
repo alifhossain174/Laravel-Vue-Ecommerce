@@ -7,9 +7,10 @@
     <title>Admin</title>
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 
-    <link rel="stylesheet" href="{{asset('backend_assets/css/alt/all-skins.min.css')}}">
-    {{-- <link rel="stylesheet" href="{{asset('backend_assets/css/alt/ionicons.min.css')}}"> --}}
-    <link rel="stylesheet" href="{{asset('backend_assets/css/alt/jquery-jvectormap.css')}}">
+    <link rel="stylesheet" href="{{asset('backend_assets/css/alt/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend_assets/css/alt/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend_assets/css/alt/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('backend_assets/css/alt/summernote-bs4.min.css')}}">
 
     {{-- extra support start --}}
     <link rel="stylesheet" href="{{asset('backend_assets/css/alt/adminlte.components.min.css')}}">
@@ -27,7 +28,22 @@
 
     </div>
     <script src="{{asset('js/admin.js')}}"></script>
-    <script src="{{asset('backend_assets/js/adminlte.min.js')}}"></script>
-    {{-- <script src="{{asset('backend_assets/js/pages/dashboard3.js')}}"></script> --}}
+
+    {{-- <script src="{{asset('backend_assets/js/download/jquery-ui.min.js')}}"></script>
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+
+    <script src="{{asset('backend_assets/js/download/Chart.min.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/sparkline.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/jquery.vmap.usa.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/jquery.knob.min.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/moment.min.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/daterangepicker.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/summernote-bs4.min.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/overlayScrollbars.min.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/adminlte.js')}}"></script>
+    <script src="{{asset('backend_assets/js/download/demo.js')}}"></script> --}}
 </body>
 </html>

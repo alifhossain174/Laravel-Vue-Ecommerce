@@ -9,7 +9,9 @@ Route::prefix('user')->group(base_path('routes/user.php'));
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route:: get('user-login', 'HomeController@index')->name('login');
+
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     return view('public.public_master');

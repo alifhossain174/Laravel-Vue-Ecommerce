@@ -49,7 +49,8 @@ export default {
         userLogin(){
             axios.post('/login',this.form)
                 .then((result) => {
-                    console.log(result);
+                    // console.log(result);
+                    localStorage.setItem('userLoggedIn',true);
                     this.$router.push({name: 'User-Dashboard'});
                 }).catch((err) => {
                     console.log(err);

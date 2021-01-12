@@ -2,17 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/get/user/info',function(){
-    return response()->json([
-        'user_info' => \Auth::user()
-    ],200);
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/user-dashboard','HomeController@index');
+    Route::get('/get/user/info','HomeController@getAuthUserData');
+
 });
+
 
 // it should be at the bottom of every routes
-Route::get('/{path}', function () {
-    return view('public.public_master');
-});
-
+Route::get('/{path}','HomeController@index');
 
 
 ?>

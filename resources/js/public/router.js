@@ -12,9 +12,24 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/', component: Home, name: 'Home' },
-        { path: '/user-login', component: UserLogin, name: 'UserLogin' },
+        {
+            path: '/user-login', component: UserLogin, name: 'UserLogin',
+            beforeEnter: (to, from, next) => {
+                const isAuthenticated = localStorage.getItem('userLoggedIn') ? true : false;
+                if (to.name !== 'UserLogin' && !isAuthenticated) next({ name: 'UserLogin' })
+                else next()
+            }
+        },
         { path: '/user-register', component: UserRegister, name: 'UserRegister' },
-        { path: '/user/user-dashboard', component: UserDashboard, name: 'User-Dashboard' },
+
+        {
+            path: '/user/user-dashboard', component: UserDashboard, name: 'User-Dashboard',
+            beforeEnter: (to, from, next) => {
+                const isAuthenticated = localStorage.getItem('userLoggedIn') ? true : false;
+                if (to.name !== 'UserLogin' && !isAuthenticated) next({ name: 'UserLogin' })
+                else next()
+            }
+        },
     ]
 })
 

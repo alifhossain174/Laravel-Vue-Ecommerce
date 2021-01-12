@@ -23,6 +23,7 @@
                                 <ul>
                                     <li><router-link to="/user-login">Login</router-link></li>
                                     <li><router-link to="/user-register">Registar</router-link></li>
+                                    <li><router-link to="/user/user-dashboard">MyAccount</router-link></li>
                                 </ul>
                             </li>
                             <li>
@@ -233,6 +234,7 @@ export default {
     methods:{
         userLogout(){
             this.$store.dispatch('user_module/userLogout');
+            localStorage.removeItem('userLoggedIn');
             // this.$router.push({name:'Home'}); // by using name
             this.$router.push('/'); //by using path
             this.$message({

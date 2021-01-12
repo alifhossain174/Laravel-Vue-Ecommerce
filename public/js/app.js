@@ -3786,7 +3786,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/login', this.form).then(function (result) {
-        console.log(result);
+        // console.log(result);
+        localStorage.setItem('userLoggedIn', true);
 
         _this.$router.push({
           name: 'User-Dashboard'
@@ -3870,6 +3871,16 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('/register', this.from).then(function (result) {
         console.log(result);
+
+        _this.$router.push({
+          name: 'User-Dashboard'
+        });
+
+        _this.$message({
+          showClose: true,
+          message: 'Congrats, Successfully Registered',
+          type: 'success'
+        });
       })["catch"](function (err) {
         console.log(err);
         _this.errors = err.response.data.errors;
@@ -4338,6 +4349,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PublicHeader",
   computed: {
@@ -4347,7 +4359,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     userLogout: function userLogout() {
-      this.$store.dispatch('user_module/userLogout'); // this.$router.push({name:'Home'}); // by using name
+      this.$store.dispatch('user_module/userLogout');
+      localStorage.removeItem('userLoggedIn'); // this.$router.push({name:'Home'}); // by using name
 
       this.$router.push('/'); //by using path
 
@@ -102434,6 +102447,18 @@ var render = function() {
                             )
                           ],
                           1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: "/user/user-dashboard" } },
+                              [_vm._v("MyAccount")]
+                            )
+                          ],
+                          1
                         )
                       ])
                     ]),
@@ -120284,7 +120309,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/user-login',
     component: _components_public_auth_UserLogin__WEBPACK_IMPORTED_MODULE_3__["default"],
-    name: 'UserLogin'
+    name: 'UserLogin',
+    beforeEnter: function beforeEnter(to, from, next) {
+      var isAuthenticated = localStorage.getItem('userLoggedIn') ? true : false;
+      if (to.name !== 'UserLogin' && !isAuthenticated) next({
+        name: 'UserLogin'
+      });else next();
+    }
   }, {
     path: '/user-register',
     component: _components_public_auth_UserRegister__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -120292,7 +120323,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/user/user-dashboard',
     component: _components_public_UserDashboard__WEBPACK_IMPORTED_MODULE_5__["default"],
-    name: 'User-Dashboard'
+    name: 'User-Dashboard',
+    beforeEnter: function beforeEnter(to, from, next) {
+      var isAuthenticated = localStorage.getItem('userLoggedIn') ? true : false;
+      if (to.name !== 'UserLogin' && !isAuthenticated) next({
+        name: 'UserLogin'
+      });else next();
+    }
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

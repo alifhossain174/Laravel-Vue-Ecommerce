@@ -57,7 +57,13 @@ export default {
         userRegister(){
             axios.post('/register', this.from)
                 .then((result) => {
-                    console.log(result)
+                    console.log(result);
+                    this.$router.push({name:'User-Dashboard'});
+                    this.$message({
+                        showClose: true,
+                        message: 'Congrats, Successfully Registered',
+                        type: 'success'
+                    });
                 }).catch((err) => {
                     console.log(err)
                     this.errors = err.response.data.errors

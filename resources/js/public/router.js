@@ -16,8 +16,8 @@ const router = new VueRouter({
             path: '/user-login', component: UserLogin, name: 'UserLogin',
             beforeEnter: (to, from, next) => {
                 const isAuthenticated = localStorage.getItem('userLoggedIn') ? true : false;
-                if (to.name !== 'UserLogin' && !isAuthenticated) next({ name: 'UserLogin' })
-                else next()
+                if (to.name == 'UserLogin' && isAuthenticated) next({ name: 'User-Dashboard' })
+                else next();
             }
         },
         { path: '/user-register', component: UserRegister, name: 'UserRegister' },

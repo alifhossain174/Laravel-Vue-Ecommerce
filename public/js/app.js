@@ -120312,8 +120312,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'UserLogin',
     beforeEnter: function beforeEnter(to, from, next) {
       var isAuthenticated = localStorage.getItem('userLoggedIn') ? true : false;
-      if (to.name !== 'UserLogin' && !isAuthenticated) next({
-        name: 'UserLogin'
+      if (to.name == 'UserLogin' && isAuthenticated) next({
+        name: 'User-Dashboard'
       });else next();
     }
   }, {
